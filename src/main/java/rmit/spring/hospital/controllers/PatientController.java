@@ -1,12 +1,10 @@
 package rmit.spring.hospital.controllers;
 
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import rmit.spring.hospital.Repositories.PatientRepository;
+import rmit.spring.hospital.repositories.PatientRepository;
 import rmit.spring.hospital.exceptions.ResourceNotFoundException;
 import rmit.spring.hospital.models.Patient;
 

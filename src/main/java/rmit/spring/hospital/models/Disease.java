@@ -9,7 +9,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "drugs")
+@Table(name = "diseases")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Disease {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 //    @Column(name = "chapter_code")

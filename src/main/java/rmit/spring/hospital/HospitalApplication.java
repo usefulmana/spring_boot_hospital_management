@@ -5,9 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
-import rmit.spring.hospital.Repositories.DiseaseRepository;
-import rmit.spring.hospital.Repositories.DrugRepository;
-import rmit.spring.hospital.Repositories.PatientRepository;
+import rmit.spring.hospital.repositories.DiseaseRepository;
+import rmit.spring.hospital.repositories.DrugRepository;
+import rmit.spring.hospital.repositories.PatientRepository;
 import rmit.spring.hospital.models.Disease;
 import rmit.spring.hospital.models.Drug;
 import rmit.spring.hospital.models.Patient;
@@ -24,7 +24,8 @@ public class HospitalApplication {
 
     @Bean
     // Test Data
-    CommandLineRunner initDatabase(PatientRepository patientRepository, DrugRepository drugRepository) {
+    CommandLineRunner initDatabase(PatientRepository patientRepository, DrugRepository drugRepository,
+                                   DiseaseRepository diseaseRepository) {
         Date date = new Date();
         return args -> {
             patientRepository.deleteAll();
@@ -35,8 +36,8 @@ public class HospitalApplication {
             drugRepository.save(new Drug("Paradol"));
             drugRepository.save(new Drug("Ketamine"));
             drugRepository.save(new Drug("Ibuprofen"));
-//            diseaseRepository.save(new Disease("Fever"));
-//            diseaseRepository.save(new Disease("Headache"));*/
+            diseaseRepository.save(new Disease("Fever"));
+            diseaseRepository.save(new Disease("Headache"));
         };
     }
 

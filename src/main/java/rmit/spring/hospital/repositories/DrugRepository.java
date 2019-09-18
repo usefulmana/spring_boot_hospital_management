@@ -1,4 +1,4 @@
-package rmit.spring.hospital.Repositories;
+package rmit.spring.hospital.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import rmit.spring.hospital.models.Drug;

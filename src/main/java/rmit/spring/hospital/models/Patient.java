@@ -6,7 +6,9 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "patients")
@@ -15,7 +17,7 @@ import java.util.Date;
 public class Patient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "patient_name", nullable = false)
@@ -37,13 +39,16 @@ public class Patient {
     @Column(name = "national_ID_number")
     private String nationalIDNumber;
 
-    @Column(name = "date_joined")
+    @Column(name = "date_created")
     @CreatedDate
-    private Date dateJoined;
+    private Date dateCreated;
 
     @Column(name = "last_updated")
     @LastModifiedDate
     private Date lastUpdated;
+
+    @OneToMany( cascade = CascadeType.ALL ,mappedBy = "patient")
+    private List<Visit> visits = new ArrayList<>();
 
     public Patient(String name, Integer age, String sex, Date dob) {
         this.patientName = name;
