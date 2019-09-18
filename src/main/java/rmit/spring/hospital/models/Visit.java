@@ -10,7 +10,9 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "visits")
@@ -40,4 +42,7 @@ public class Visit {
     @Column(name = "last_updated")
     @LastModifiedDate
     private Date lastUpdated;
+
+    @OneToMany( cascade = CascadeType.ALL, mappedBy = "visit")
+    private List<Prescription> prescriptions = new ArrayList<>();
 }

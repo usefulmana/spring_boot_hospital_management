@@ -1,6 +1,7 @@
 package rmit.spring.hospital.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,5 +39,10 @@ public class Prescription {
     @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn(name = "prescription_id")
     private List<PrescriptionDetails> prescriptionDetails = new ArrayList<>();
+
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(name = "visit_id")
+    @JsonIgnore
+    private Visit visit;
 
 }
