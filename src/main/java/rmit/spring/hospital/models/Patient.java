@@ -18,11 +18,8 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "first_name", nullable = false)
-    private String firstName;
-
-    @Column(name = "last_name", nullable = false)
-    private String lastName;
+    @Column(name = "patient_name", nullable = false)
+    private String patientName;
 
     @Column(name = "age", nullable = false)
     private Integer age;
@@ -48,9 +45,8 @@ public class Patient {
     @LastModifiedDate
     private Date lastUpdated;
 
-    public Patient(String firstName, String lastName, Integer age, String sex, Date dob) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Patient(String name, Integer age, String sex, Date dob) {
+        this.patientName = name;
         this.age = age;
         this.sex = sex;
         this.dob = dob;

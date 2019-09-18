@@ -31,7 +31,10 @@ public class PatientController {
         return patientRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Unable to find any patient with id = ", id));
     }
-
+    @GetMapping("/patients/byName/{name}")
+    public List<Patient> getPatientsByName(@Valid @PathVariable(value = "name") String name){
+        return patientRepository.findByPatientNameIgnoreCaseContaining(name);
+    }
     @PostMapping("/patients")
     public Patient addPatient(@RequestBody Patient patient){
         return patientRepository.save(patient);
@@ -45,8 +48,7 @@ public class PatientController {
 
         patient.setAge(patientDetails.getAge());
         patient.setDob(patientDetails.getDob());
-        patient.setFirstName(patientDetails.getFirstName());
-        patient.setLastName(patientDetails.getLastName());
+        patient.setPatientName(patientDetails.getPatientName());
         patient.setInsuranceNumber(patientDetails.getInsuranceNumber());
         patient.setNationalIDNumber(patientDetails.getNationalIDNumber());
         patient.setSex(patientDetails.getSex());
