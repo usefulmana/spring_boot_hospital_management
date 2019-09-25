@@ -25,6 +25,11 @@ public class PatientController {
         return patientRepository.findAll();
     }
 
+    @GetMapping("/patient/latest")
+    public Patient getLatestPatient(){
+        return patientRepository.findTopByOrderByIdDesc();
+    }
+
     @GetMapping("/patients/{id}")
     public Patient getAPatientById(@Valid @PathVariable(value = "id") Long id) throws ResourceNotFoundException {
         return patientRepository.findById(id)
