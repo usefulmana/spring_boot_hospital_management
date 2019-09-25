@@ -6,5 +6,6 @@ import rmit.spring.hospital.models.Visit;
 import java.util.List;
 
 public interface VisitRepository extends JpaRepository<Visit, Long> {
-    List<Visit> getAllByPatient_Id(Long id);
+    List<Visit> getAllByPatient_IdOrderByDateCreatedDesc(Long id);
+    Visit findTopByPatientIdOrderByDateCreatedDesc(Long id);
 }

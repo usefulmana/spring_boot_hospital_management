@@ -31,7 +31,12 @@ public class VisitController {
 
     @GetMapping("/visits/patient/{p_id}")
     public List<Visit> getAllVisitsByAPatient(@Valid @PathVariable(name = "p_id") Long id){
-        return visitRepository.getAllByPatient_Id(id);
+        return visitRepository.getAllByPatient_IdOrderByDateCreatedDesc(id);
+    }
+
+    @GetMapping("/visits/patient/latest/{p_id}")
+    public Visit getLatestVisitOfAPatient(@Valid @PathVariable(name = "p_id") Long id){
+        return visitRepository.findTopByPatientIdOrderByDateCreatedDesc(id);
     }
 
     @PostMapping("/visits/patient/{p_id}")
