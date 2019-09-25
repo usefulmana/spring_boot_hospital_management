@@ -30,7 +30,6 @@ public class Patient {
     private String sex;
 
     @Column(name = "dob", nullable = false)
-
     private Date dob;
 
     @Column(name = "insurance_number")
