@@ -32,6 +32,9 @@ public class PatientController {
     }
     @GetMapping("/patients/byName/{name}")
     public List<Patient> getPatientsByName(@Valid @PathVariable(value = "name") String name){
+        if (name.equalsIgnoreCase("all")){
+            return patientRepository.findAll();
+        }
         return patientRepository.findByPatientNameIgnoreCaseContaining(name);
     }
     @PostMapping("/patients")
