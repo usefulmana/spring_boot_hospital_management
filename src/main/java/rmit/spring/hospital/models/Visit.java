@@ -41,4 +41,11 @@ public class Visit {
 
     @OneToMany( cascade = CascadeType.ALL, mappedBy = "visit")
     private List<Prescription> prescriptions = new ArrayList<>();
+
+    @OneToMany( cascade = CascadeType.ALL, mappedBy = "visit")
+    private List<Diagnosis> diagnoses = new ArrayList<>();
+
+    @OneToMany( cascade = CascadeType.ALL, mappedBy = "visit")
+    private List<LabReport> labReports = new ArrayList<>();
+
 }
