@@ -1,6 +1,7 @@
 package rmit.spring.hospital.models;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,8 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class Role {
     @Id

@@ -13,7 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "patients")
 @EntityListeners(AuditingEntityListener.class)
-@Getter @Setter @NoArgsConstructor @AllArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Patient {
 
     @Id

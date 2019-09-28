@@ -1,10 +1,7 @@
 package rmit.spring.hospital.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -17,8 +14,7 @@ import java.util.List;
 @Entity
 @Table(name = "diagnosis")
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Diagnosis {

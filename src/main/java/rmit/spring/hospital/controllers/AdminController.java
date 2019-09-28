@@ -14,6 +14,7 @@ import rmit.spring.hospital.repositories.UserRepository;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1/admin")
@@ -34,8 +35,6 @@ public class AdminController {
         user.setPassword(encryptedPassword);
         return userRepository.save(user);
     }
-
-    ;
 
     @GetMapping("/user")
     @PreAuthorize("hasAnyRole('ADMIN')")
@@ -71,7 +70,13 @@ public class AdminController {
         User user = userRepository.findById(id).orElseThrow(
                 () -> new ResourceNotFoundException("Unable to find a user with id = ", id)
         );
-        BeanUtils.copyProperties(user, updatedUser);
+        user.setUserName(updatedUser.getUserName());
+        user.setPassword(bCryptPasswordEncoder.encode(updatedUser.getPassword()));
+        user.setEmail(updatedUser.getEmail());
+        user.setFamilyName(updatedUser.getFamilyName());
+        user.setGivenName(updatedUser.getGivenName());
+        user.setMiddleName(updatedUser.getMiddleName());
+        user.setRoles(updatedUser.getRoles());
         return userRepository.save(user);
     }
 }

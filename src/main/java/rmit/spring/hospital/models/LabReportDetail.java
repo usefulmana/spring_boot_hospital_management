@@ -1,10 +1,7 @@
 package rmit.spring.hospital.models;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -12,8 +9,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "lab_report_details")
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class LabReportDetail {

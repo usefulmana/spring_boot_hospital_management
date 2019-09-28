@@ -1,9 +1,6 @@
 package rmit.spring.hospital.models;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CollectionId;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -15,8 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "drugs")
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Drug {

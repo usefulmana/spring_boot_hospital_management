@@ -1,17 +1,14 @@
 package rmit.spring.hospital.models;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
 import javax.persistence.*;
 
 
 @Entity
 @Table(name = "diseases")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Disease {

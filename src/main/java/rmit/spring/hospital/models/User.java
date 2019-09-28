@@ -1,6 +1,7 @@
 package rmit.spring.hospital.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,8 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = "users")
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 public class User {
 
