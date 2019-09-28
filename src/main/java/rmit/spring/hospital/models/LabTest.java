@@ -27,6 +27,9 @@ public class LabTest {
     @Column(name = "test_name", nullable = false)
     private String testName;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "date_added")
     @CreatedDate
     private Date createdDate;
